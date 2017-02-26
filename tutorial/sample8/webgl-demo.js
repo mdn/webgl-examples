@@ -63,6 +63,9 @@ function start() {
     // animation when the video is finished playing.
 
     videoElement.addEventListener("ended", videoDone, true);
+
+    // Set up to draw the scene periodically.
+    setInterval(drawScene, 15);
   }
 }
 
