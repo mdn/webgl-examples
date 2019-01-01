@@ -19,7 +19,7 @@ function main() {
   // Vertex shader program
 
   const vsSource = `
-    attribute vec4 aVertexPosition;
+    attribute vec3 aVertexPosition;
     attribute vec2 aTextureCoord;
 
     uniform mat4 uModelViewMatrix;
@@ -28,7 +28,7 @@ function main() {
     varying highp vec2 vTextureCoord;
 
     void main(void) {
-      gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
+      gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);
       vTextureCoord = aTextureCoord;
     }
   `;

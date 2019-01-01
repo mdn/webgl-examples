@@ -19,7 +19,7 @@ function main() {
   // Vertex shader program
 
   const vsSource = `
-    attribute vec4 aVertexPosition;
+    attribute vec2 aVertexPosition;
     attribute vec4 aVertexColor;
 
     uniform mat4 uModelViewMatrix;
@@ -28,7 +28,7 @@ function main() {
     varying lowp vec4 vColor;
 
     void main(void) {
-      gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
+      gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 0.0, 1.0);
       vColor = aVertexColor;
     }
   `;

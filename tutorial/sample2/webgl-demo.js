@@ -17,13 +17,13 @@ function main() {
   // Vertex shader program
 
   const vsSource = `
-    attribute vec4 aVertexPosition;
+    attribute vec2 aVertexPosition;
 
     uniform mat4 uModelViewMatrix;
     uniform mat4 uProjectionMatrix;
 
     void main() {
-      gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
+      gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 0.0, 1.0);
     }
   `;
 
